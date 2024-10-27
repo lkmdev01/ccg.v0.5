@@ -1,42 +1,45 @@
-<script setup lang="ts">
-defineProps<{
-  msg: string
-}>()
-</script>
-
+<!-- src/components/HelloWorld.vue -->
 <template>
-  <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-      What's next?
-    </h3>
+  <div class="message-container">
+    <h1 class="text-2xl font-bold text-white">{{ message }}</h1>
   </div>
 </template>
 
+<script lang="ts">
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+
+export default {
+    name: 'HelloWorld',
+    setup() {
+        // Definindo a reatividade com ref
+        const message = ref('');
+
+        // Função para buscar a mensagem da API
+        const fetchMessage = async () => {
+            try {
+                const response = await axios.get('http://localhost:8000/api/hello');
+                message.value = response.data.message; // Acessando o valor reativo
+            } catch (error) {
+                console.error('Erro ao conectar à API:', error);
+                message.value = 'Erro ao conectar à API';
+            }
+        };
+
+        // Chamar a função ao montar o componente
+        onMounted(fetchMessage);
+
+        // Retornar as variáveis e funções que queremos expor ao template
+        return {
+            message,
+        };
+    },
+};
+</script>
+
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-.greetings h1,
-.greetings h3 {
+.message-container {
   text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
+  margin-top: 20px;
 }
 </style>
