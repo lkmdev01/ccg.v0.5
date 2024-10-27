@@ -17,7 +17,7 @@
         <input type="checkbox" id="terca" class="peer" checked />
         <div class="collapse-title text-xl font-bold" for="terca">Terça</div>
         <div class="collapse-content">
-          <p><b>19:12h</b> - Célula | Noite</p>
+          <p><b>20:12h</b> - Célula | Noite</p>
         </div>
       </div>
     </div>
