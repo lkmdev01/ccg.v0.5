@@ -8,8 +8,8 @@
           Domingo
         </div>
         <div class="collapse-content">
-          <p><b>10h</b> - Santa ceia | Manhã (Primeiro domingo do mês)</p>
-          <p><b>19h</b> - Culto da família | Noite</p>
+          <p><b>10:12h</b> - Santa ceia | Manhã (Primeiro domingo do mês)</p>
+          <p><b>19:12h</b> - Culto da família | Noite</p>
         </div>
       </div>
 
@@ -17,7 +17,7 @@
         <input type="checkbox" id="terca" class="peer" checked />
         <div class="collapse-title text-xl font-bold" for="terca">Terça</div>
         <div class="collapse-content">
-          <p><b>19h</b> - Célula | Noite</p>
+          <p><b>19:12h</b> - Célula | Noite</p>
         </div>
       </div>
     </div>
