@@ -8,7 +8,7 @@
           Domingo
         </div>
         <div class="collapse-content">
-          <p><b>10:12h</b> - Santa ceia | Manhã (Primeiro domingo do mês)</p>
+          <p><b>9:12h</b> - Santa ceia | Manhã (Primeiro domingo do mês)</p>
           <p><b>19:12h</b> - Culto da família | Noite</p>
         </div>
       </div>
