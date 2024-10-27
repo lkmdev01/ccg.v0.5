@@ -8,7 +8,6 @@
         <div class="flex lg:flex-1">
           <a href="#" class="-m-1.5 p-1.5">
             <span class="sr-only">Your Company</span>
-            <!-- <img class="h-8 w-auto" src="/logo.png" alt="" /> -->
           </a>
         </div>
         <div class="flex lg:hidden">
@@ -25,17 +24,20 @@
           <a
             v-for="item in navigation"
             :key="item.name"
-            :href="item.href"
+            href="#"
             class="text-sm font-semibold leading-6 text-gray-900"
-            @click.prevent="scrollToSection(item.href)"
+            @click.prevent="navigateToSection(item.href)"
           >
             {{ item.name }}
           </a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">
+          <RouterLink
+            to="/login"
+            class="text-sm font-semibold leading-6 text-gray-900"
+          >
             Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          </RouterLink>
         </div>
       </nav>
       <Dialog
@@ -67,20 +69,20 @@
                 <a
                   v-for="item in navigation"
                   :key="item.name"
-                  :href="item.href"
+                  href="#"
                   class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  @click.prevent="scrollToSection(item.href)"
+                  @click.prevent="navigateToSection(item.href)"
                 >
                   {{ item.name }}
                 </a>
               </div>
               <div class="py-6">
-                <a
-                  href="#"
+                <RouterLink
+                  to="/login"
                   class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
-                </a>
+                </RouterLink>
               </div>
             </div>
           </div>
@@ -92,8 +94,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { Dialog, DialogPanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+
 
 // Navegação do cabeçalho
 const navigation = [
@@ -104,13 +108,32 @@ const navigation = [
 ]
 
 const mobileMenuOpen = ref(false)
+const router = useRouter()
+const route = useRoute()
 
 // Função para rolar suavemente até a seção
 const scrollToSection = (href: string) => {
-  // Definindo o tipo do parâmetro
   const element = document.querySelector(href)
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
+// Função para lidar com navegação interna para âncoras
+const navigateToSection = (href: string) => {
+  if (href.startsWith('#')) {
+    if (route.path !== '/') {
+      // Redireciona para a página Home e rola para a seção depois de navegar
+      router.push('/').then(() => {
+        scrollToSection(href)
+      })
+    } else {
+      // Se já está na Home, apenas rola para a seção
+      scrollToSection(href)
+    }
+  } else {
+    // Para rotas normais (como '/colaboracoes')
+    router.push(href)
   }
 }
 </script>

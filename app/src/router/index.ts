@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import DashboardView from '../views/DashboardView.vue'
+import NotFound from '../views/NotFound.vue'; // Importando o componente NotFound
+import ErrorPage from '../views/ErrorPage.vue'; // Página de erro
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,12 +15,33 @@ const router = createRouter({
     {
       path: '/colaboracoes',
       name: 'collaboration',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/CollaborationView.vue'),
     },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue'), // Importação dinâmica do LoginView
+    },
+    { path: '/dashboard',
+      name: 'Dashboard',
+      component: DashboardView,
+    },
+    {
+      path: '/:pathMatch(.*)*', // Rota para capturar qualquer caminho que não exista
+      name: 'NotFound',
+      component: NotFound,
+    },
+    {
+      path: '/error',
+      component: ErrorPage
+    }, // Rota para erro
   ],
 })
+
+router.onError((error) => {
+  console.error('Erro de roteamento:', error);
+  // Navegue para a página de erro
+  router.push({ path: '/error' });
+});
 
 export default router
