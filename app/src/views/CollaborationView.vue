@@ -1,55 +1,41 @@
 <template>
-  <div>
-    <!-- <Carousel :items="visibleSlides" :autoplay="2000" :wrap-around="true">
-      <Slide
-        v-for="(slide, index) in visibleSlides"
-        :key="index"
-        :content="slide"
-      >
-        <div
-          class="carousel__item"
-          :style="{ backgroundImage: `url(${slide.src})` }"
-        >
-          <img :src="slide.src" :alt="slide.alt" class="carousel-image" />
-        </div>
-      </Slide>
-    </Carousel> -->
-    <!-- Header -->
-    <div class="text-center pt-10 md:pt-28 py-8 bg-gray-100 px-2">
-      <h1 class="text-4xl font-bold text-gray-800">Contribua</h1>
-      <p class="text-gray-600">Home / Contribua</p>
-      <p class="text-gray-600 max-w-xl font-semibold text-center mx-auto py-5">"Cada um dê conforme determinou em seu coração, não com pesar ou por obrigação, pois Deus ama quem dá com alegria."
-        (2 Coríntios 9:7)</p>
-    </div>
-    <!-- Formas de Contribuir -->
-    <div class="bg-white py-8 text-gray-500 px-2">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mycontainer">
-        <div class="col-span-1">
-          <h5 class="text-3xl font-bold">Formas de <br> Contribuir</h5>
-        </div>
-        <div class="col-span-1">
-          <h5 class="text-xl font-bold">PIX</h5>
-          <p>
-            Contribua através da nossa chave pix: <br />
-            email: celulahelenamaria@gmail.com
-          </p>
-        </div>
-        <div class="col-span-1">
-          <h5 class="text-xl font-bold">
-            Presencialmente
-          </h5>
-          <p>
-            Faça uma visita e contribua pessoalmente. <br />
-            Rua Rafael Gonzalez, 523 - JD. Helena Maria, Guarujá - SP, 11431-070 -
-            Brasil
-          </p>
+    <DefaultLayout>
+      <div class="text-center pt-10 md:pt-28 py-8 bg-gray-100 px-2">
+        <h1 class="text-4xl font-bold text-gray-800">Contribua</h1>
+        <p class="text-gray-600">Home / Contribua</p>
+        <p class="text-gray-600 max-w-xl font-semibold text-center mx-auto py-5">"Cada um dê conforme determinou em seu coração, não com pesar ou por obrigação, pois Deus ama quem dá com alegria."
+          (2 Coríntios 9:7)</p>
+      </div>
+      <!-- Formas de Contribuir -->
+      <div class="bg-white py-8 text-gray-500 px-2">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mycontainer">
+          <div class="col-span-1">
+            <h5 class="text-3xl font-bold">Formas de <br> Contribuir</h5>
+          </div>
+          <div class="col-span-1">
+            <h5 class="text-xl font-bold">PIX</h5>
+            <p>
+              Contribua através da nossa chave pix: <br />
+              email: celulahelenamaria@gmail.com
+            </p>
+          </div>
+          <div class="col-span-1">
+            <h5 class="text-xl font-bold">
+              Presencialmente
+            </h5>
+            <p>
+              Faça uma visita e contribua pessoalmente. <br />
+              Rua Rafael Gonzalez, 523 - JD. Helena Maria, Guarujá - SP, 11431-070 -
+              Brasil
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+  </DefaultLayout>
 </template>
 
 <script lang="ts" setup>
+import DefaultLayout from '../layouts/DefaultLayout.vue'
 // import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 // import { Carousel, Slide } from 'vue3-carousel'
 // import 'vue3-carousel/dist/carousel.css'

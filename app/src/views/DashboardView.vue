@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import DashboardLayout from '../components/DashboardLayout.vue'
+import DashboardLayout from '../layouts/DashboardLayout.vue'
 import DashboardCard from '../components/DashboardCards.vue'
 import { ref } from 'vue';
 

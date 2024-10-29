@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import NotFound from '../views/NotFound.vue'; // Importando o componente NotFound
 import ErrorPage from '../views/ErrorPage.vue'; // Página de erro
+import DashInfoView from '../views/DashInfoView.vue'; // Página de erro
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,6 +37,10 @@ const router = createRouter({
       path: '/error',
       component: ErrorPage
     }, // Rota para erro
+    {
+      path: '/dashboard/info',
+      component: DashInfoView
+    },
   ],
 })
 

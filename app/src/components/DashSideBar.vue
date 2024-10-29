@@ -6,6 +6,7 @@
       <ul class="space-y-2">
         <li><router-link to="/dashboard/overview" class="block py-2 px-4 hover:bg-gray-700">Overview</router-link></li>
         <li><router-link to="/dashboard/analytics" class="block py-2 px-4 hover:bg-gray-700">Analytics</router-link></li>
+        <li><router-link to="/dashboard/info" class="block py-2 px-4 hover:bg-gray-700">Info Site</router-link></li>
         <li><router-link to="/dashboard/settings" class="block py-2 px-4 hover:bg-gray-700">Settings</router-link></li>
       </ul>
     </nav>

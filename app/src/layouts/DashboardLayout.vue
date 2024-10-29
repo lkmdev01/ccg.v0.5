@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import DashSidebar from './DashSideBar.vue'
-import DashNavbar from './DashNavbar.vue'
+import DashSidebar from '../components/DashSideBar.vue'
+import DashNavbar from '../components/DashNavbar.vue'
 </script>
 
 <style scoped>
