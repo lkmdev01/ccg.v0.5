@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/var/www/html
+    networks:
+      - slim-vue-network
+    environment:
+      DB_HOST: mysql
+      DB_NAME: your_database
+      DB_USER: seu_usuario
+      DB_PASS: sua_senha
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend/app:/app 
+    networks:
+      - slim-vue-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password  # Altere para a senha que desejar
+      MYSQL_DATABASE: your_database        # Nome do banco de dados inicial
+      MYSQL_USER: seu_usuario               # Nome do usuário
+      MYSQL_PASSWORD: sua_senha            # Senha do usuário
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - slim-vue-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root_password   # A mesma senha que você definiu para o MySQL
+    ports:
+      - "8080:80"
+    networks:
+      - slim-vue-network
+
+networks:
+  slim-vue-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
