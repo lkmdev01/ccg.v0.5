@@ -2,4 +2,7 @@
 backend/vendor
 backend/.env
 frontend/node_modules
+*.docker
+Dockerfile
 docker-compose.yml
+
